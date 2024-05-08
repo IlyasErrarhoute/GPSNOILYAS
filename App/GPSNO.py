@@ -1,16 +1,5 @@
-#Intro
-# Dieses App darstellt ein Mockup für ein System NO GPS, das die Entfernungen und Winkel zwischen einem beweglichen Punkt M und den Eckpunkten eines Quadrats berechnet.
-# Der bewegliche Punkt M kann auf dem Canvas verschoben werden, und die Entfernungen und Winkel werden in Echtzeit aktualisiert.
-# Es gibt auch eine Option, um Linien und Kreise ein- oder auszublenden, um die Anzeige zu ändern.
-# Die Berechnungen basieren auf der Regel von Pythagoras für die Entfernungen und der Regel von Tangens für die Winkel. 
-#Die Regel von Mitternachtsformel wird auch verwendet, um die Mitte des beweglichen Punktes zu finden.
 
-
-#Code
-# Als graphische Benutzeroberfläche (GUI) wird Tkinter verwendet (Standardmodul in Python) 
-#diese hat den Vorteil das sie einfach zu bedienen ist und eine große Community hat.
 import tkinter as tk
-# Das Modul math wird verwendet, um mathematische Funktionen zu berechnen.
 import math
 class NoGpsApp:
     def __init__(self, root):
@@ -19,8 +8,8 @@ class NoGpsApp:
         self.root.resizable(True, True)
 
         # Canvas Panel wird erstellt, um das Quadrat, die Punkte, Linien und Kreise zu zeichnen.
-        self.canvas = tk.Canvas(root, width=600, height=600)
-        self.canvas.pack(side="left", fill="both", expand=True)
+        self.canvas = tk.Canvas(root , bg="mint cream", width=600, height=600)
+        self.canvas.pack(side="left", padx=50, pady=50 , fill="both", expand=False )
 
         # Quadrat und Punkte zeichnen
         self.quadrat_zeichnen()
@@ -139,12 +128,9 @@ class NoGpsApp:
                 self.distanz_labels[punkt] = tk.Label(self.distanz_tabelle, text=f"{punkt}M: {distanz:.2f}", bg="#1E1E1E", fg="white", font=("Helvetica", 10))
                 self.distanz_labels[punkt].pack(fill="x")
     
-    # Das war die schwierigste Funktion, weil  ich habe mehr als 15 versuche gebraucht um die Winkel richtig zu aktualisieren
-    # Ich habe im Beginn die Kosisnusregel angewendet aber das hat keine richtige Ergebnisse gegeben , und ich  dachte Die Berechnung war falsch
-    # Habe dewegen andere Trigonometrische Funktionen ausprobiert ohne Erfolg . 
-    # Am Ende aber herausgefunden dass die Berechnung richtig war und das Problem war dass die Brechnung mit Pixeln gemacht wurde 
-    # Also die menschliche Augen können nicht die Unterschiede zwischen 0.0264583333 cm  und 0.0529166667 cm gut merken
-    # Deshalb habe ich ein Schwellenwert von 10 Pixeln festgelegt um die Punkte als koinzident zu betrachten
+    # die Brechnung ist mit Pixeln 
+    #  die menschliche Augen können nicht die Unterschiede zwischen 0.0264583333 cm  und 0.0529166667 cm gut merken
+    # Deshalb habe ich ein Schwellenwert von 10 Pixeln festgelegt 
     # Jetzt sind die Ergebnisse näher an der menschlichen Wahrnehmung und die Winkel werden richtig aktualisiert
     def winkel_aktualisieren(self):
         # Koodinaten von Punkten A, M, B, C, D
