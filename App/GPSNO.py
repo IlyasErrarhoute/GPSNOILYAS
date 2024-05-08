@@ -9,7 +9,7 @@ class NoGpsApp:
 
         # Canvas Panel wird erstellt, um das Quadrat, die Punkte, Linien und Kreise zu zeichnen.
         self.canvas = tk.Canvas(root , bg="mint cream", width=600, height=600)
-        self.canvas.pack(side="left", padx=50, pady=50 , fill="both", expand=False )
+        self.canvas.pack(side="left", padx=10, pady=10 , fill="both", expand=False )
 
         # Quadrat und Punkte zeichnen
         self.quadrat_zeichnen()
@@ -94,7 +94,7 @@ class NoGpsApp:
             if punkt in self.linien:
                 self.canvas.coords(self.linien[punkt], M[0], M[1], koordinaten[0]+5.5, koordinaten[1]+5.5)
             else:
-                self.linien[punkt] = self.canvas.create_line(M[0], M[1], koordinaten[0], koordinaten[1], fill="blue")
+                self.linien[punkt] = self.canvas.create_line(M[0], M[1], koordinaten[0], koordinaten[1], fill="red", width=2, arrow="last")
     
     def kreise_aktualisieren(self):
         # Kreise um Punkte A, B, C, D mit Radien entsprechend der Entfernungen von M aktualisieren
@@ -235,7 +235,7 @@ class NoGpsApp:
 
 def main():
     root = tk.Tk()
-    app = NoGpsApp(root)
+    app = NoGpsApp(root) 
     root.mainloop()
 
 if __name__ == "__main__":
