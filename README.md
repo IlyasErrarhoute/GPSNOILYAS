@@ -7,7 +7,7 @@ Dieses Projekt präsentiert ein Mockup für GPS:NO Projekt, das die Entfernungen
 Als graphische Benutzeroberfläche (GUI) wird Tkinter verwendet, da es einfach zu bedienen ist und eine große Community hat. Es werden auch mathematische Funktionen aus dem Modul "math" verwendet.
 
 ## Installation
-- **Windows**: Stellen Sie sicher, dass Python installiert ist. Tkinter ist in den meisten Python-Installationen für Windows enthalten. Führen Sie die `main()` Funktion in der Datei `main.py` aus.
+- **Windows**: Stellen Sie sicher, dass Python installiert ist. Tkinter ist in den meisten Python-Installationen für Windows enthalten. Führen Sie die `main()` Funktion in der Datei `GPSNO.py` aus.
 - **Linux**: Stellen Sie sicher, dass Python und Tkinter installiert sind. Sie können Tkinter mit dem folgenden Befehl installieren:
 ```bash
 sudo apt-get install python3-tk
